@@ -80,7 +80,7 @@ git push origin fix/描述一下改了什么
 - 修改 `build.sh` 时注意：Windows 版 `apksigner` 收到中文路径参数会乱码，
   所以脚本先签成 ASCII 临时名再改名。
 
-## 七、许可证
+## 六、许可证
 
 本项目以 **GPL-3.0** 发布（见 `LICENSE`）。你提交的代码将同样按 GPL-3.0 授权。
 
@@ -88,7 +88,7 @@ git push origin fix/描述一下改了什么
 （GPL-3.0）的实现移植而来，`FrameAssembler.java` 的帧头字段定义也参照了该项目——
 这也是本项目选择 GPL-3.0 而非 MIT 的原因。改动这两处时请留意保持许可证一致。
 
-## 八、报 Bug
+## 七、报 Bug
 
 请在 Issue 里带上：**机型、系统版本、App 版本、复现步骤、以及现象截图**。
 
