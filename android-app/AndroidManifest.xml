@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  package 名称不能改：它是 App 在系统里的唯一身份证。
+  一旦改动，手机就会把它当成「另一个新 App」装上，旧版不会升级、还会并存两份。
+  版本号：versionCode 只能单调递增（否则无法覆盖安装），versionName 给用户看。
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.airlook.viewer"
+    android:versionCode="18"
+    android:versionName="1.0">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!--
+      Android 9 及更早的系统，往系统相册写入必须先有存储权限（否则拍照/录像会静默失败）；
+      Android 10 起改成"分区存储"，应用写自己的媒体不再需要任何权限。
+      maxSdkVersion=28 保证它不会出现在 Android 10+ 的权限列表里。
+    -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28"/>
+
+    <uses-feature android:name="android.hardware.wifi" android:required="true"/>
+
+    <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="33"/>
+
+    <application
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Material.NoActionBar"
+        android:hardwareAccelerated="true">
+        <activity android:name=".MainActivity" android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

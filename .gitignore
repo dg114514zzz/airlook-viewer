@@ -1,0 +1,23 @@
+# 第三方 / 体积大 / 可再生成的东西，不要提交到仓库
+android-build-tools/
+reference/
+android-app/old-versions/
+android-app/build/
+desktop-viewer/captures/
+
+# 签名密钥：绝对不要公开（拿到它就能签出你手机认可的"升级包"）
+keys/
+
+# 构建与运行时产物
+*.apk
+*.idsig
+*.dex
+*.class
+
+# 例外：正式安装包留档（只有一个，不要加版本号）
+!android-app/耳镜查看器.apk
+
+# 系统垃圾
+Thumbs.db
+desktop.ini
+.DS_Store
