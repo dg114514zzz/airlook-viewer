@@ -1,0 +1,21 @@
+# 行尾统一 —— 防止 shell 脚本被提交成 CRLF
+#
+# 为什么重要：带 CRLF 的 .sh 在 Linux/macOS 上会以
+# "/bin/bash^M: bad interpreter" 直接失败，而这类问题在 Windows 上完全看不出来。
+
+# 默认：文本文件一律 LF（覆盖各人本机的 core.autocrlf 设置）
+* text=auto eol=lf
+
+# Windows 批处理必须是 CRLF，否则 cmd 解析 goto/标签 可能出问题
+*.cmd  text eol=crlf
+*.bat  text eol=crlf
+
+# 二进制：禁止任何换行转换
+*.apk      binary
+*.jar      binary
+*.so       binary
+*.keystore binary
+*.png      binary
+*.jpg      binary
+*.idsig    binary
+*.dex      binary
