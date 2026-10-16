@@ -40,7 +40,7 @@
 **已知限制（如实说明）**：
 
 - **HarmonyOS NEXT（纯血鸿蒙 5.x 及以上）不能用** —— 它不再支持安卓应用。
-  HarmonyOS 4.x 及以下（内核基于安卓）正常；本项目就是在华为 nova 10 青春版 / HarmonyOS 4.2 上跑通的。
+  HarmonyOS 4.x 及以下（内核基于安卓）正常；本项目已在 HarmonyOS 4.2 机型上实测跑通。
 - **Android 9 及更早**：需要授予一个存储权限，否则拍照 / 录像无法保存到相册（系统 API 限制）。
   预览、亮度、旋转等功能不受影响。
 - **Android 9 及更早**：照片会存到相册默认目录，而不是 `Pictures/耳镜/` 子目录
@@ -109,7 +109,7 @@ bash verify-app.sh          # 不带参数默认检查 android-app/耳镜查看�
 
 本地还有（**不在仓库里**）：`android-build-tools/`（构建工具链约 830 MB）、
 `keys/debug.keystore`（签名密钥）、`reference/libmlcamera-2.5.so`（厂商 SDK 库，仅本地分析用）、
-`android-app/old-versions/`（历史版本 APK）、`desktop-viewer/`（电脑版 Python 查看器，需电脑带无线网卡）。
+`android-app/old-versions/`（历史版本 APK）。
 
 ## 自己构建
 

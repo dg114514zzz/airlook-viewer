@@ -3,7 +3,6 @@ android-build-tools/
 reference/
 android-app/old-versions/
 android-app/build/
-desktop-viewer/captures/
 
 # 签名密钥：绝对不要公开（拿到它就能签出你手机认可的"升级包"）
 keys/
