@@ -15,7 +15,5 @@
 *.jar      binary
 *.so       binary
 *.keystore binary
-*.png      binary
-*.jpg      binary
 *.idsig    binary
 *.dex      binary

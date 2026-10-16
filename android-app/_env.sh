@@ -49,22 +49,22 @@ fi
 JAVA="$(cygpath -m "$JDK")/bin"
 
 # ---------------------------------------------------------------- Android 工具链
+# 依次尝试：环境变量 → 项目同级目录（本仓库的默认布局）→ 报错并给出指引
 if [ -z "$AIRLOOK_TOOLS" ]; then
     SIB="$(cd "$(dirname "${BASH_SOURCE[0]}")/../android-build-tools" 2>/dev/null && pwd || true)"
     if [ -n "$SIB" ] && [ -d "$SIB/sdk" ]; then
         AIRLOOK_TOOLS="$(cygpath -m "$SIB")"
-    else
-        AIRLOOK_TOOLS="F:/android-build-tools"
     fi
 fi
-TOOLS="$AIRLOOK_TOOLS"
+TOOLS="${AIRLOOK_TOOLS:-}"
 BT="$TOOLS/sdk/build-tools/33.0.2"                 # aapt2 / zipalign / apksigner
 JAR="$TOOLS/sdk/platforms/android-33/android.jar"  # 编译用的安卓框架类
 R8="$TOOLS/r8.jar"                                 # d8 用的编译器
 
-if [ ! -f "$JAR" ]; then
-    echo "[X] 找不到 Android SDK：$TOOLS"
-    echo "  需要 platform-33 与 build-tools 33.0.2，见 README 的「重新构建」一节。"
+if [ -z "$TOOLS" ] || [ ! -f "$JAR" ]; then
+    echo "[X] 找不到 Android SDK（需要 platform-33 与 build-tools 33.0.2）"
+    echo "  脚本会在项目同级目录找 android-build-tools/；装在别处就这样指过来："
+    echo "    AIRLOOK_TOOLS=D:/android-sdk bash build.sh"
     exit 1
 fi
 

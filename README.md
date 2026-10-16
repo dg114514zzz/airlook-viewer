@@ -107,7 +107,7 @@ bash verify-app.sh          # 不带参数默认检查 android-app/耳镜查看�
         └── values/strings.xml   应用名
 ```
 
-本地还有（**不在仓库里**）：`android-build-tools/`（构建工具链约 830 MB）、
+本地还有（**不在仓库里**）：`android-build-tools/`（构建工具链约 570 MB）、
 `keys/debug.keystore`（签名密钥）、`reference/libmlcamera-2.5.so`（厂商 SDK 库，仅本地分析用）、
 `android-app/old-versions/`（历史版本 APK）。
 
